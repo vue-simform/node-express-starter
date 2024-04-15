@@ -9,6 +9,19 @@ process.on('uncaughtException', err => {
     process.exit(1);
 });
 
+const envFile =
+    // eslint-disable-next-line no-undef
+  process.env.NODE_ENV === 'production'
+    ? '.env.prod'
+    // eslint-disable-next-line no-undef
+    : process.env.NODE_ENV === 'staging'
+    ? '.env.development'
+    : '.env.local';
+
+
+console.log(`${envFile} Loaded!`);
+dotenv.config({ path: envFile });
+
 dotenv.config({
     path: './.env'
 });

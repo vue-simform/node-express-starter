@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon server.js",
+    "start:dev": "NODE_ENV=development nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
+    "start:staging": "NODE_ENV=staging nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write 'src/**/*.js'",
