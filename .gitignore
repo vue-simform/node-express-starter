@@ -10,7 +10,12 @@ logs
 .fleet
 .idea
 
-# Local env files
-.env
-.env.*
-!.env.example
+# Ignore actual environment files
+.env.development
+.env.local
+.env.prod
+
+# But keep the example files visible
+!.env.development.example
+!.env.local.example
+!.env.prod.example

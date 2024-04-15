@@ -3,8 +3,17 @@ import * as http from 'http';
 import { AddressInfo } from 'net';
 import app from './app';
 
+const envFile: string = process.env.NODE_ENV === 'production'
+    ? './.env.prod'
+    : process.env.NODE_ENV === 'staging'
+    ? './.env.development'
+    : './.env.local';
+
+console.log(`${envFile} Loaded!`);
+
+
 dotenv.config({
-    path: './.env'
+    path: envFile
 });
 
 const port: number = parseInt(process.env.PORT as string, 10) || 3000;
@@ -28,3 +37,4 @@ process.on('unhandledRejection', (err: Error) => {
         process.exit(1); 
     });
 });
+
