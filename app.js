@@ -64,6 +64,11 @@ app.use((req, res, next) => {
 });
 
 //  2) Routes
+// added for testing supertesting
+app.get('/', (req, res) => {
+    res.send('Hello World');
+  });
+  
 app.use('/api', nameYourRouter);
 
 app.all('*', (req, res, next) => {
