@@ -9,10 +9,12 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 
 // custom files
-const nameYourRouter = require('./routes/nameYourRouter.js')
+const AppError = require('./utils/appError');
+const nameYourRouter = require('./routes/nameYourRouter.js');
 const globalErrorHandler = require('./controller/errorController.js');
 
 // this express.static is used to open files that are supported by browsers.
+// eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -20,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set secuitry http header
 app.use(helmet());
 
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
@@ -65,7 +68,7 @@ app.use('/api', nameYourRouter);
 
 app.all('*', (req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));  // anything passed to next is understandable that it is an error and it will send the error to the global error handling middleware
-})
+});
 
 // Error handling middleware
 app.use(globalErrorHandler);
