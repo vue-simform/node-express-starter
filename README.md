@@ -21,6 +21,8 @@ Clone the repository to your local machine:
     npm run start:dev
 ```
 ## Directory Structure
+
+```
 node-express-starter/
 │
 ├── controllers/
@@ -39,6 +41,8 @@ node-express-starter/
 ├── package.json
 ├── README.md
 └── server.js
+```
+
 
 ## Contribution
 Contributions are welcome! If you have any ideas, suggestions, or improvements, feel free to open an issue or submit a pull request.
